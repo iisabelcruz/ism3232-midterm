@@ -59,7 +59,7 @@ def calculate_quote(
     discounted_cost = cost * (FULL_PRICE - discount)
 
     if discounted_cost < DAMAGE_WAIVER_THRESHOLD:
-        discounted_Cost += DAMAGE_WAIVER_COST
+        discounted_cost += DAMAGE_WAIVER_COST
 
     return round(discounted_cost, DECIMAL_PLACES)
 
@@ -82,7 +82,7 @@ def total_quoted(rentals: list) -> float:
         quote = calculate_quote(
             rental["daily_rate"],
             rental["days"],
-            rental["contactor"],
+            rental["contractor"],
         )
         total += quote
 
