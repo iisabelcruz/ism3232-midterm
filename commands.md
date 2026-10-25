@@ -1,11 +1,18 @@
 # Setup Midterm
 mkdir ism3232-midterm
+```
 touch business_rules.py main.py commands.md README.md
+```
 mkdir tests
+```
 cd tests
+```
 touch __init__.py test_business_rules.py
+```
 cd ism3232
+```
 code .
+
 
 # Setting Up the Environment
 python3 -m venv .venv
@@ -20,3 +27,13 @@ echo '.venv/' > .gitignore
 echo '__pycache__/' >> .gitgignore
 cat .gitignore 
 ls -la
+```
+which python 3
+```
+
+```
+/Users/isabelcruz/ism3232-midterm/.venv/bin/python3
+```
+The path ends in '.venv/bin/python3', so the project's virtual environment is active.
+
+
