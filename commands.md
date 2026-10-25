@@ -1,4 +1,5 @@
 # Setup Midterm
+```
 mkdir ism3232-midterm
 
 touch business_rules.py main.py commands.md README.md
@@ -13,19 +14,32 @@ cd ism3232
 
 code .
 
+```
 
 # Setting Up the Environment
+```
 python3 -m venv .venv
+
 source .venv/bin/activate
+
 which python 3              /Users/isabelcruz/ism3232-midterm/.venv/bin/python3
+
 pip list                    Package and version of pip is stated
+
 pip install pytest ruff
-pip list                    List of packageS and version installed
+
+pip list                    List of packages and version installed
+
 pip freeze > reuirements.txt
+
 cat requirements.txt
+
 echo '.venv/' > .gitignore
+
 echo '__pycache__/' >> .gitgignore
+
 cat .gitignore 
+
 ls -la
 ```
 which python 3
@@ -117,11 +131,13 @@ main.py
 ```
 
 # The commit story
-
 ```
 git log --oneline
 ```
-8eb08b2 (HEAD -> main, origin/main) Added commands before final commit story and previewing the github visuals
+5c98364 (HEAD -> main, origin/main) Fixed rental report and organized imports
+228caf6 Add updated contene to README.md for others to interpret better this project
+ba624a1 Adding current git log to commands
+8eb08b2 Added commands before final commit story and previewing the github visuals
 4a4444a Testing blocks for command.md
 50fbcf8 Add Tests for the Rules of cost, discounts, applying waiver, inspection, and deposit for the rental limitation
 3646b0f Add rentals list and access to run a report
