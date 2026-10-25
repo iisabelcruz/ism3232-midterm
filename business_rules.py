@@ -70,7 +70,7 @@ def requires_deposit(quote: float) -> bool:
 def needs_inspection(days: int, quote: float) -> bool:
     """Return True when a pickup inspection is required."""
     return (
-        days >+ INSPECTION_MIN_DAYS
+        days >= INSPECTION_MIN_DAYS
         and quote > INSPECTION_QUOTE_THRESHOLD
     )
 
@@ -79,10 +79,14 @@ def total_quoted(rentals: list) -> float:
     total = 0.0
 
     for rental in rentals:
+        if "contractor" in rental:
+            contractor = rental["contractor"]
+        else:
+            contractor = False   
         quote = calculate_quote(
             rental["daily_rate"],
-            rental["days"],
-            rental["contractor"],
+            rental["days"],   
+            contractor
         )
         total += quote
 
@@ -94,10 +98,15 @@ def largest_rental(rentals: list) -> str:
     largest_quote = None
 
     for rental in rentals:
+        if "contractor" in rental:
+            contractor = rental["contractor"]
+        else:
+            contractor = False   
         quote = calculate_quote(
             rental["daily_rate"],
             rental["days"],
-            rental["contractor"],
+            contractor
+        
         )
         if largest_quote is None or quote > largest_quote:
             largest_quote = quote
@@ -120,5 +129,6 @@ def format_rental_line(
 
     return (
         f"{customer}: ${quote:.2f} | "
-        f"deposit: {deposit_text} | inspection: {inspection_text}"
+        f"deposit: {deposit_text} | "
+        f"inspection: {inspection_text}"
     )        
