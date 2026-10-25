@@ -42,15 +42,16 @@ cat .gitignore
 
 ls -la
 ```
+```
 which python 3
 ```
-
 ```
 /Users/isabelcruz/ism3232-midterm/.venv/bin/python3
 ```
 The path ends in '.venv/bin/python3', so the project's virtual environment is active.
 
 # The Project Structure
+
 tree -L 2
 .
 ├── __pycache__
@@ -131,6 +132,7 @@ main.py
 ```
 
 # The commit story
+
 ```
 git log --oneline
 ```
