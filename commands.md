@@ -121,5 +121,10 @@ main.py
 ```
 git log --oneline
 ```
-
+8eb08b2 (HEAD -> main, origin/main) Added commands before final commit story and previewing the github visuals
+4a4444a Testing blocks for command.md
+50fbcf8 Add Tests for the Rules of cost, discounts, applying waiver, inspection, and deposit for the rental limitation
+3646b0f Add rentals list and access to run a report
+85868dd Add rental costs and rental discount rules
+c3ee46d Set Up of Midterm From the Terminal
 ```

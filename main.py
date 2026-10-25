@@ -42,7 +42,7 @@ for rental in rentals:
         inspection_count += 1
 
 total = total_quoted(rentals)
-average = total / len(rentals)            
+average = total / len(rentals)
 largest = largest_rental(rentals)
 
 print(f"Rentals: {len(rentals)}")

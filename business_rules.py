@@ -9,7 +9,7 @@ NO_DISCOUNT = 0.0
 STANDARD_DISCOUNT = 0.10
 LONG_RENTAL_DISCOUNT = 0.20
 
-# Rule #3: Automatic Licensed Contractors Discount 
+# Rule #3: Automatic Licensed Contractors Discount
 
 CONTRACTOR_MIN_DISCOUNT = 0.10
 
@@ -31,10 +31,10 @@ INSPECTION_MIN_DAYS = 5
 INSPECTION_QUOTE_THRESHOLD = 800.00
 
 
-
 def calculate_rental_cost(daily_rate: float, days: int) -> float:
     """Return the rental cost before discount."""
     return daily_rate * days
+
 
 def get_rental_discount(days: int, contractor: bool = False) -> float:
     """Return the discount rate for the rental."""
@@ -48,11 +48,10 @@ def get_rental_discount(days: int, contractor: bool = False) -> float:
     if contractor and discount < CONTRACTOR_MIN_DISCOUNT:
         discount = CONTRACTOR_MIN_DISCOUNT
 
-    return discount 
+    return discount
 
-def calculate_quote(
-        daily_rate: float, days: int, contractor: bool = False
-) -> float:
+
+def calculate_quote(daily_rate: float, days: int, contractor: bool = False) -> float:
     """Return the discounted rental quote including any damage waiver."""
     cost = calculate_rental_cost(daily_rate, days)
     discount = get_rental_discount(days, contractor)
@@ -63,16 +62,16 @@ def calculate_quote(
 
     return round(discounted_cost, DECIMAL_PLACES)
 
+
 def requires_deposit(quote: float) -> bool:
     """Return True when a deposit is required."""
     return quote >= DEPOSIT_THRESHOLD
 
+
 def needs_inspection(days: int, quote: float) -> bool:
     """Return True when a pickup inspection is required."""
-    return (
-        days >= INSPECTION_MIN_DAYS
-        and quote > INSPECTION_QUOTE_THRESHOLD
-    )
+    return days >= INSPECTION_MIN_DAYS and quote > INSPECTION_QUOTE_THRESHOLD
+
 
 def total_quoted(rentals: list) -> float:
     """Return the total of all rental quotes."""
@@ -82,15 +81,12 @@ def total_quoted(rentals: list) -> float:
         if "contractor" in rental:
             contractor = rental["contractor"]
         else:
-            contractor = False   
-        quote = calculate_quote(
-            rental["daily_rate"],
-            rental["days"],   
-            contractor
-        )
+            contractor = False
+        quote = calculate_quote(rental["daily_rate"], rental["days"], contractor)
         total += quote
 
     return round(total, DECIMAL_PLACES)
+
 
 def largest_rental(rentals: list) -> str:
     """Return the customer with the largest quote."""
@@ -101,21 +97,17 @@ def largest_rental(rentals: list) -> str:
         if "contractor" in rental:
             contractor = rental["contractor"]
         else:
-            contractor = False   
-        quote = calculate_quote(
-            rental["daily_rate"],
-            rental["days"],
-            contractor
-        
-        )
+            contractor = False
+        quote = calculate_quote(rental["daily_rate"], rental["days"], contractor)
         if largest_quote is None or quote > largest_quote:
             largest_quote = quote
             largest_customer = rental["customer"]
 
     return largest_customer
 
+
 def format_rental_line(
-        customer: str, quote: float, deposit: bool, inspection: bool
+    customer: str, quote: float, deposit: bool, inspection: bool
 ) -> str:
     """Return one formatted line for the rental report."""
     deposit_text = "no"
@@ -131,4 +123,4 @@ def format_rental_line(
         f"{customer}: ${quote:.2f} | "
         f"deposit: {deposit_text} | "
         f"inspection: {inspection_text}"
-    )        
+    )
