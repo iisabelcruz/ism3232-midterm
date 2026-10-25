@@ -104,3 +104,22 @@ tests/test_business_rules.py
 137:def test_format_rental_line_with_inspection_only():
 ```
 test_business_rules.py defines 28 functions
+
+
+# Which files print
+
+```
+rg -l 'print'
+```
+
+```
+main.py
+```
+
+# The commit story
+
+```
+git log --oneline
+```
+
+```
