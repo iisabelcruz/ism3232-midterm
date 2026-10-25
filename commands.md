@@ -51,8 +51,11 @@ which python 3
 The path ends in '.venv/bin/python3', so the project's virtual environment is active.
 
 # The Project Structure
-
+```
 tree -L 2
+```
+
+```
 .
 ├── __pycache__
 │   └── business_rules.cpython-313.pyc
@@ -65,7 +68,7 @@ tree -L 2
     ├── __init__.py
     ├── __pycache__
     └── test_business_rules.py
-
+```
 .gitignore, .venv, and .pytest_cache are all files and folders that are on my computer but not in the Github repository because .gitignore and .venv is a file that tells Git what files and folders not to track.
 
 # Every function and test
