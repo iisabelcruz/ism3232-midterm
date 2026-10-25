@@ -139,6 +139,7 @@ main.py
 ```
 git log --oneline
 ```
+```
 5c98364 (HEAD -> main, origin/main) Fixed rental report and organized imports
 228caf6 Add updated contene to README.md for others to interpret better this project
 ba624a1 Adding current git log to commands
